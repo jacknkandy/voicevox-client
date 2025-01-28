@@ -1,7 +1,6 @@
 import { RestAPI } from "./rest";
 import { audioQuery } from "./audio_query";
 import { Preset } from "./preset";
-import { Speaker } from "./speaker";
 
 // voicevox client
 /**
@@ -103,14 +102,5 @@ export class Client {
    */
   async deletePreset(id: number): Promise<void> {
     return await this.rest.deletePreset(id);
-  }
-
-  // Fetch speakers
-  /**
-   * @returns Speakers
-   */
-  async fetchSpeakers(): Promise<Speaker[]> {
-    let speakers = await this.rest.getSpeakers();
-    return speakers.map((x) => new Speaker(x));
   }
 }
